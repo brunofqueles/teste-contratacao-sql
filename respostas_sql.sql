@@ -149,39 +149,13 @@ WHERE
 
 SELECT
     P.ProductName,
-    SUM(OD.UnitPrice * OD.Quantity * (1 - OD.Discount)) AS ValorTotalComDesconto
+    ROUND(SUM(OD.UnitPrice * OD.Quantity * (1 - OD.Discount)), 2) AS ValorTotalComDesconto
 FROM [Order Details] AS OD
 JOIN Products AS P
     ON OD.ProductID = P.ProductID
 GROUP BY
-    P.ProductName;
-
-
-SELECT * FROM ORDERS
-SELECT * FROM [Order Details]
-
-SELECT
-    P.ProductName,
-    OD.UnitPrice,
-    OD.Quantity,
-    OD.Discount,
-    (OD.UnitPrice * OD.Quantity * (1 - OD.Discount)) AS ValorComDesconto
-FROM [Order Details] AS OD
-JOIN Products AS P
-    ON OD.ProductID = P.ProductID
+    P.ProductName
 ORDER BY
-    P.ProductName;
+    ValorTotalComDesconto DESC;
 
-
-
-SELECT
-    P.ProductName,
-    OD.UnitPrice,
-    OD.Quantity,
-    OD.Discount,
-    (OD.UnitPrice * OD.Quantity * (1 - OD.Discount)) AS ValorComDesconto
-FROM [Order Details] AS OD
-JOIN Products AS P
-    ON OD.ProductID = P.ProductID
-ORDER BY
-    P.ProductName;
+----------------------------------------------------------------------------------------------------------------------------
