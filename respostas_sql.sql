@@ -69,7 +69,15 @@ FROM Products
 WHERE UnitPrice > (SELECT AVG(UnitPrice) FROM Products);
 
 -----------------------------------------------------------------------------------------------------------
--- 7 
+-- 7.Crie um procedimento que retorne cada produto e seu preço;
+--   o Adicione ao procedimento, criado na questão anterior, os parâmetros 'Codigo_Fornecedor' (permitindo escolher 1 ou mais)
+--   e'Codigo_Categoria' (permitindo escolher 1 ou mais) e altere-a para atender a passagem dessas sessões;
+--   o Adicione ao procedimento, criado na questão anterior, o parâmetro 'Codigo_Transportadora' (permitindo escolher 1 ou mais) e um outro
+--   parâmetro 'Tipo_Saida' para se optar por uma saída OLTP (Transacional) ou OLAP (Pivot).
+
+
+-----  Prefiro pensar melhor antes de responder ------
+
 -----------------------------------------------------------------------------------------------------------
 
 -- 8.Crie uma consulta que obteve a lista de empregados e seus líderes, caso o empregado não possua liderança, informe 'Não possui lideranças'.
@@ -159,3 +167,30 @@ ORDER BY
     ValorTotalComDesconto DESC;
 
 ----------------------------------------------------------------------------------------------------------------------------
+
+-- Perguntas complementares:
+
+-- 1.Tem conhecimento em processos e ferramentas de ETL? Quantos anos de experiência? Quais casos foram aplicados?
+-- Possuo solido conhecimento em processo de ETL sejam feitos no Power BI, SQL ou Python agora estou explorando o Databricks a titulo de evolução
+-- possuo mais de 8 anos atuando com Engenharia/Analise de dados. Neste case foram aplicadas diversas funções em conjunto como Where e joins e em
+-- especial a questão 7 com um grau de complexidade maior eu usaria funções de agregação para resolver.
+
+-- 2.Você tem experiência com a ferramenta Azure Data Factory?
+-- Atualmente trabalho com o AWS e cito aqui 5 acões que são similares entre as 2 plataformas CLOUD:
+-- Ingestão de dados - Com AWS Glue + AWS S3 para puxar dados de fontes externas (bancos, APIs, arquivos) e armazenar no Data Lake.
+-- ETL em escala - Usando o AWS Glue (Spark) para limpeza, padronização e enriquecimento de dados.
+-- Pipelines completos - Usando o AWS Step Functions ou Amazon Managed Workflows.
+-- Carga em Data Warehouse - Usar o Amazon Redshift como destino para análises.
+-- Integração com BI - Usando Amazon Athena (SQL sobre S3) ou Redshift para consumo direto no Power BI.
+
+-- 3.Pode responder em um fluxograma (ou escrito em tópicos) um caso de ETL onde:
+
+-- Parte dos dados de origem estão no banco de dados Oracle e outra em CSV no Storage Bucket da AWS
+
+-- O dado final deverá estar na base de dados SQL Server.
+
+-- Deverá ser verificada a entrada dos dados de origem.
+
+-- Validação dos dados finais que foram processados.
+
+-- Cálculos dos dados de origem, para geração de indicadores (que serão os dados finais).
